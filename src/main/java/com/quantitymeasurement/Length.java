@@ -1,19 +1,22 @@
 package com.quantitymeasurement;
 
-public class Inch {
-    private final Double inch;
+public class Length {
 
-    public Inch(Double inch) {
-        if(inch == null)
+    private final Double value;
+
+    enum Unit{FEET,INCH}
+
+    public Length(Unit unit, Double value) {
+        if(value == null)
             throw new QuantityMeasurementException(QuantityMeasurementException.ExceptionType.NULL,"entered null value");
-        this.inch = inch;
+        this.value = value;
     }
 
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
-        Inch that = (Inch) o;
-        return Double.compare(that.inch, inch) == 0;
+        Length that = (Length) o;
+        return Double.compare(that.value, value) == 0;
     }
 }

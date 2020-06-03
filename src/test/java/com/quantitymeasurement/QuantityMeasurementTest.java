@@ -7,17 +7,17 @@ public class QuantityMeasurementTest {
 
     @Test
     public void givenZeroFeet_whenEqual_shouldReturnTrue() {
-        Feet feet1 = new Feet(0.0);
-        Feet feet2 = new Feet(0.0);
-        Assert.assertEquals(feet1,feet2);
+        Length length1 = new Length(Length.Unit.FEET,0.0);
+        Length length2 = new Length(Length.Unit.FEET,0.0);
+        Assert.assertEquals(length1, length2);
     }
 
     @Test
     public void givenNullValue_whenNull_shouldThrowException() {
         try {
-            Feet feet1 = new Feet(0.0);
-            Feet feet2 = new Feet(null);
-            Assert.assertEquals(feet1, feet2);
+            Length length1 = new Length(Length.Unit.FEET,0.0);
+            Length length2 = new Length(Length.Unit.FEET,null);
+            Assert.assertEquals(length1, length2);
         } catch (QuantityMeasurementException e){
             Assert.assertEquals(QuantityMeasurementException.ExceptionType.NULL,e.type);
         }
@@ -25,31 +25,31 @@ public class QuantityMeasurementTest {
 
     @Test
     public void givenSameFeetValues_whenReferencesAreNotEqual_shouldReturnFalse() {
-        Feet feet1 = new Feet(4.5);
-        Feet feet2 = new Feet(4.5);
-        Assert.assertNotSame(feet1, feet2);
+        Length length1 = new Length(Length.Unit.FEET,4.5);
+        Length length2 = new Length(Length.Unit.FEET,4.5);
+        Assert.assertNotSame(length1, length2);
     }
 
     @Test
     public void givenSameFeetValues_whenValuesAreEqual_shouldReturnTrue() {
-        Feet feet1 = new Feet(3.3);
-        Feet feet2 = new Feet(3.3);
-        Assert.assertEquals(feet1,feet2);
+        Length length1 = new Length(Length.Unit.FEET,3.3);
+        Length length2 = new Length(Length.Unit.FEET,3.3);
+        Assert.assertEquals(length1, length2);
     }
 
     @Test
     public void givenZeroInches_whenEqual_shouldReturnTrue() {
-        Inch inch1 = new Inch(0.0);
-        Inch inch2 = new Inch(0.0);
-        Assert.assertEquals(inch1,inch2);
+        Length length1 = new Length(Length.Unit.INCH,0.0);
+        Length length2 = new Length(Length.Unit.INCH,0.0);
+        Assert.assertEquals(length1, length2);
     }
 
     @Test
     public void givenNullValue_whenEqualedNull_shouldThrowException() {
         try {
-            Inch inch1 = new Inch(0.0);
-            Inch inch2 = new Inch(null);
-            Assert.assertEquals(inch1, inch2);
+            Length length1 = new Length(Length.Unit.INCH,0.0);
+            Length length2 = new Length(Length.Unit.INCH,null);
+            Assert.assertEquals(length1, length2);
         } catch (QuantityMeasurementException e){
             Assert.assertEquals(QuantityMeasurementException.ExceptionType.NULL,e.type);
         }
@@ -57,15 +57,15 @@ public class QuantityMeasurementTest {
 
     @Test
     public void givenSameInchValues_whenReferencesAreNotEqual_shouldReturnFalse() {
-        Inch inch1 = new Inch(1.2);
-        Inch inch2 = new Inch(1.2);
-        Assert.assertNotSame(inch1, inch2);
+        Length length1 = new Length(Length.Unit.INCH,1.2);
+        Length length2 = new Length(Length.Unit.INCH,1.2);
+        Assert.assertEquals(length1, length2);
     }
 
     @Test
     public void givenSameInchValues_whenValuesAreEqual_shouldReturnTrue() {
-        Inch inch1 = new Inch(6.5);
-        Inch inch2 = new Inch(6.5);
-        Assert.assertEquals(inch1,inch2);
+        Length length1 = new Length(Length.Unit.INCH,0.0);
+        Length length2 = new Length(Length.Unit.INCH,0.0);
+        Assert.assertEquals(length1, length2);
     }
 }
