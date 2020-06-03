@@ -1,21 +1,19 @@
 package com.quantitymeasurement;
 
-public class QuantityMeasurement {
+public class Inch {
+    private final Double inch;
 
-    public static double FEET_TO_INCH = 12;
-    double value;
-
-    public QuantityMeasurement(Double feet) {
-        if(feet == null)
+    public Inch(Double inch) {
+        if(inch == null)
             throw new QuantityMeasurementException(QuantityMeasurementException.ExceptionType.NULL,"entered null value");
-        this.value = feet * FEET_TO_INCH;
+        this.inch = inch;
     }
 
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
-        QuantityMeasurement that = (QuantityMeasurement) o;
-        return Double.compare(that.value, value) == 0;
+        Inch that = (Inch) o;
+        return Double.compare(that.inch, inch) == 0;
     }
 }
