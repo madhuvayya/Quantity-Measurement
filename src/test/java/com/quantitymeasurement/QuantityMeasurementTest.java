@@ -198,8 +198,8 @@ public class QuantityMeasurementTest {
 
     @Test
     public void given1Yard3Feet_whenCompared_shouldReturnTrue() {
-        Length length1 = new Length(Length.Unit.YARD,1.0);
-        Length length2 = new Length(Length.Unit.FEET,3.0);
+        Length length1 = new Length(Length.Unit.YARD, 1.0);
+        Length length2 = new Length(Length.Unit.FEET, 3.0);
         boolean result = length1.compare(length2);
         Assert.assertTrue(result);
     }
