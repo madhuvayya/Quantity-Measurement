@@ -109,6 +109,14 @@ public class QuantityMeasurementTest {
     }
 
     @Test
+    public void given1Inch1Feet_whenEqualed_shouldReturnTrue() {
+        Length length1 = new Length(Length.Unit.INCH,1.0);
+        Length length2 = new Length(Length.Unit.FEET,1.0);
+        boolean result = length1.compare(length2);
+        Assert.assertFalse(result);
+    }
+
+    @Test
     public void given1Feet12Inch_whenCompared_shouldReturnTrue() {
         Length length1 = new Length(Length.Unit.FEET,1.0);
         Length length2 = new Length(Length.Unit.INCH,12.0);
@@ -197,9 +205,81 @@ public class QuantityMeasurementTest {
     }
 
     @Test
+    public void given35Inches1Yard_whenCompared_shouldReturnTrue() {
+        Length length1 = new Length(Length.Unit.INCH,35.0);
+        Length length2 = new Length(Length.Unit.YARD,1.0);
+        boolean result = length1.compare(length2);
+        Assert.assertFalse(result);
+    }
+
+    @Test
     public void given1Yard3Feet_whenCompared_shouldReturnTrue() {
         Length length1 = new Length(Length.Unit.YARD, 1.0);
         Length length2 = new Length(Length.Unit.FEET, 3.0);
+        boolean result = length1.compare(length2);
+        Assert.assertTrue(result);
+    }
+
+    @Test
+    public void given0Cm0Cm_whenEqual_shouldReturnTrue() {
+        Length length1 = new Length(Length.Unit.CM,0.0);
+        Length length2 = new Length(Length.Unit.CM,0.0);
+        Assert.assertTrue(length1.equals(length2));
+    }
+
+    @Test
+    public void given0CmNull_whenNull_shouldThrowException() {
+        try {
+            Length length1 = new Length(Length.Unit.CM,0.0);
+            Length length2 = new Length(Length.Unit.CM,null);
+            Assert.assertFalse(length1.equals(length2));
+        } catch (QuantityMeasurementException e){
+            Assert.assertEquals(QuantityMeasurementException.ExceptionType.NULL,e.type);
+        }
+    }
+
+    @Test
+    public void given1Cm1Cm_whenReferencesAreNotEqual_shouldReturnFalse() {
+        Length length1 = new Length(Length.Unit.CM,1.0);
+        Length length2 = new Length(Length.Unit.CM,1.0);
+        Assert.assertFalse(length1==length2);
+    }
+
+    @Test
+    public void given1Cm0Cm_whenReferencesAreNotEqual_shouldReturnFalse() {
+        Length length1 = new Length(Length.Unit.CM,1.0);
+        Length length2 = new Length(Length.Unit.CM,0.0);
+        Assert.assertFalse(length1==length2);
+    }
+
+    @Test
+    public void given1Feet30_48Cm_whenCompared_shouldReturnTrue() {
+        Length length1 = new Length(Length.Unit.FEET,1.0);
+        Length length2 = new Length(Length.Unit.CM,30.48);
+        boolean result = length1.compare(length2);
+        Assert.assertTrue(result);
+    }
+
+    @Test
+    public void given1Feet1Cm_whenCompared_shouldReturnFalse() {
+        Length length1 = new Length(Length.Unit.FEET,1.0);
+        Length length2 = new Length(Length.Unit.CM,1.0);
+        boolean result = length1.compare(length2);
+        Assert.assertFalse(result);
+    }
+
+    @Test
+    public void given1Inch1Cm_whenCompared_shouldReturnFalse() {
+        Length length1 = new Length(Length.Unit.INCH,1.0);
+        Length length2 = new Length(Length.Unit.CM,1.0);
+        boolean result = length1.compare(length2);
+        Assert.assertFalse(result);
+    }
+
+    @Test
+    public void given1Cm2_54Inches_whenCompared_shouldReturnTrue() {
+        Length length1 = new Length(Length.Unit.CM,1.0);
+        Length length2 = new Length(Length.Unit.INCH,2.54);
         boolean result = length1.compare(length2);
         Assert.assertTrue(result);
     }

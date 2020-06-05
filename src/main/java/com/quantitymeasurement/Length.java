@@ -8,7 +8,7 @@ public class Length {
     private final Double value;
     private final Unit unit;
 
-    enum Unit{FEET,INCH,YARD}
+    enum Unit{FEET,INCH,YARD,CM}
 
     static Map<String,Double> conversionMap = new HashMap<>();
 
@@ -19,9 +19,16 @@ public class Length {
         conversionMap.put("YARD_TO_FEET",3.0);
         conversionMap.put("YARD_TO_INCH",36.0);
         conversionMap.put("INCH_TO_YARD",1/36.0);
+        conversionMap.put("INCH_TO_CM",1/2.54);
+        conversionMap.put("CM_TO_INCH",2.54);
+        conversionMap.put("YARD_TO_CM",91.44);
+        conversionMap.put("CM_TO_YARD",1/91.44);
+        conversionMap.put("FEET_TO_CM",30.48);
+        conversionMap.put("CM_TO_FEET",1/30.48);
     }
+
     public Length(Unit unit, Double value) {
-        if(value == null)
+        if(value == null || unit == null)
             throw new QuantityMeasurementException(QuantityMeasurementException.ExceptionType.NULL,"entered null value");
         this.value = value;
         this.unit = unit;
@@ -32,7 +39,7 @@ public class Length {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Length that = (Length) o;
-        return Double.compare(that.value, value) == 0;
+        return Double.compare(that.value, value) == 0 && this.unit.equals(that.unit);
     }
 
     public boolean compare(Length that) {
