@@ -335,4 +335,42 @@ public class QuantityMeasurementTest {
         UnitComparision unitComparision1 = new UnitComparision(UnitConversion.MILLILITRE,1000.0);
         Assert.assertTrue(unitComparision.equals(unitComparision1));
     }
+
+    @Test
+    public void given1Gallon3_78Liters_whenAdded_shouldReturn7_57Liters() {
+        UnitComparision unitComparision = new UnitComparision(UnitConversion.GALLON,1.0);
+        UnitComparision unitComparision1 = new UnitComparision(UnitConversion.LITRE,3.78);
+        Double sum = unitComparision.addUnites(unitComparision1);
+        Assert.assertEquals(7.56,sum,0.0);
+    }
+
+    @Test
+    public void given1Liter1000MilliLiters_whenAdded_shouldReturn2Liters() {
+        UnitComparision unitComparision = new UnitComparision(UnitConversion.LITRE,1.0);
+        UnitComparision unitComparision1 = new UnitComparision(UnitConversion.MILLILITRE,1000.0);
+        Double sum = unitComparision.addUnites(unitComparision1);
+        Assert.assertEquals(2.0,sum,0.0);
+    }
+
+    @Test
+    public void given1Kg1000Grams_whenEqualed_shouldReturnTrue() {
+        UnitComparision unitComparision = new UnitComparision(UnitConversion.KG,1.0);
+        UnitComparision unitComparision1 = new UnitComparision(UnitConversion.GRAMS,1000.0);
+        Assert.assertTrue(unitComparision.equals(unitComparision1));
+    }
+
+    @Test
+    public void given1Tonne1000Kgs_whenEqualed_shouldReturnTrue() {
+        UnitComparision unitComparision = new UnitComparision(UnitConversion.TONNE,1.0);
+        UnitComparision unitComparision1 = new UnitComparision(UnitConversion.KG,1000.0);
+        Assert.assertTrue(unitComparision.equals(unitComparision1));
+    }
+
+    @Test
+    public void given1Tonne1000Grams_whenAdded_shouldReturn1001Kgs() {
+        UnitComparision unitComparision = new UnitComparision(UnitConversion.TONNE,1.0);
+        UnitComparision unitComparision1 = new UnitComparision(UnitConversion.GRAMS,1000.0);
+        Double sum = unitComparision.addUnites(unitComparision1);
+        Assert.assertEquals(1001.0,sum,0.0);
+    }
 }
