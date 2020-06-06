@@ -1,6 +1,7 @@
 package com.quantitymeasurement;
 
 public enum UnitConversion {
+
     INCH(1.0, UnitType.LENGTH),
     FEET(12.0,UnitType.LENGTH),
     YARD(36.0,UnitType.LENGTH),
@@ -8,9 +9,9 @@ public enum UnitConversion {
     LITRE(1.0,UnitType.VOLUME),
     MILLILITRE(0.001,UnitType.VOLUME),
     GALLON(3.78,UnitType.VOLUME),
-    KG(1.0,UnitType.MASS),
-    GRAMS(0.001,UnitType.MASS),
-    TONNE(1000.0,UnitType.MASS),;
+    KG(1.0,UnitType.WEIGHT),
+    GRAMS(0.001,UnitType.WEIGHT),
+    TONNE(1000.0,UnitType.WEIGHT);
 
     public final Double value;
     public final UnitType type;
@@ -22,5 +23,11 @@ public enum UnitConversion {
 
     public Double getConversionValue(){
         return value;
+    }
+
+    public enum UnitType {
+        LENGTH,
+        VOLUME,
+        WEIGHT,
     }
 }

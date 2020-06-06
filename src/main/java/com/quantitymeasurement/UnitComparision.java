@@ -17,6 +17,7 @@ public class UnitComparision {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         UnitComparision that = (UnitComparision) o;
+        System.out.println(value+","+that.value);
         return Double.compare(that.value, value) == 0 && unit.type == that.unit.type;
     }
 
@@ -28,8 +29,7 @@ public class UnitComparision {
 
     public Double addUnites(UnitComparision that) {
         if(this.unit.type == that.unit.type) {
-            Double sum = value + that.value ;
-            return sum;
+            return value + that.value;
         }
         return null;
     }

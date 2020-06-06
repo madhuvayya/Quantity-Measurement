@@ -373,4 +373,18 @@ public class QuantityMeasurementTest {
         Double sum = unitComparision.addUnites(unitComparision1);
         Assert.assertEquals(1001.0,sum,0.0);
     }
+
+    @Test
+    public void given1Inch1Kg_whenEqualed_shouldReturnFalse() {
+        UnitComparision unitComparision = new UnitComparision(UnitConversion.INCH,1.0);
+        UnitComparision unitComparision1 = new UnitComparision(UnitConversion.KG,1.0);
+        Assert.assertFalse(unitComparision.equals(unitComparision1));
+    }
+
+    @Test
+    public void given1Gallon1Yard_whenEqualed_shouldReturnFalse() {
+        UnitComparision unitComparision = new UnitComparision(UnitConversion.GALLON,1.0);
+        UnitComparision unitComparision1 = new UnitComparision(UnitConversion.YARD,1.0);
+        Assert.assertFalse(unitComparision.equals(unitComparision1));
+    }
 }
