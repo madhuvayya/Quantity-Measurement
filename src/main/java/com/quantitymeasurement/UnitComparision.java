@@ -2,15 +2,13 @@ package com.quantitymeasurement;
 
 public class UnitComparision {
 
-    private final Double value;
-    private final Unit unit;
+    public Double value;
+    public UnitConversion unit;
 
-    enum Unit{FEET,INCH,YARD,CM}
-
-    public UnitComparision(Unit unit, Double value) {
+    public UnitComparision(UnitConversion unit, Double value) {
         if(value == null || unit == null)
             throw new QuantityMeasurementException(QuantityMeasurementException.ExceptionType.NULL,"entered null value");
-        this.value = value;
+        this.value = value * unit.getConversionValue();
         this.unit = unit;
     }
 
@@ -19,16 +17,20 @@ public class UnitComparision {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         UnitComparision that = (UnitComparision) o;
-        return Double.compare(that.value, value) == 0 && this.unit.equals(that.unit);
+        return Double.compare(that.value, value) == 0 && unit.type == that.unit.type;
     }
 
     public boolean compare(UnitComparision that) {
         if (this.unit.equals(that.unit))
             return this.equals(that);
-        String variable = this.unit + "_TO_" + that.unit;
-        Double conversionValue = LengthUnits.getConversionValue(variable);
-        if(conversionValue != 0.0)
-            return Double.compare(this.value * conversionValue,that.value) == 0;
-        return false;
+        return Double.compare(this.value,that.value) == 0;
+    }
+
+    public Double addUnites(UnitComparision that) {
+        if(this.unit.type == that.unit.type) {
+            Double sum = value + that.value ;
+            return sum;
+        }
+        return null;
     }
 }

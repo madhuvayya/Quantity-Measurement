@@ -1,41 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="com.quantitymeasurement.QuantityMeasurementTest" tests="35" skipped="0" failures="0" errors="0" timestamp="2020-06-05T05:10:34" hostname="MADHU" time="0.057">
+<testsuite name="com.quantitymeasurement.QuantityMeasurementTest" tests="1" skipped="0" failures="0" errors="0" timestamp="2020-06-06T06:00:03" hostname="MADHU" time="0.003">
   <properties/>
-  <testcase name="givenSameFeetValues_whenReferencesAreNotEqual_shouldReturnFalse" classname="com.quantitymeasurement.QuantityMeasurementTest" time="0.014"/>
-  <testcase name="given1Yard3Feet_whenCompared_shouldReturnTrue" classname="com.quantitymeasurement.QuantityMeasurementTest" time="0.006"/>
-  <testcase name="given1Feet12Inch_whenCompared_shouldReturnTrue" classname="com.quantitymeasurement.QuantityMeasurementTest" time="0.0"/>
-  <testcase name="given0Feet0Feet_whenEqual_shouldReturnTrue" classname="com.quantitymeasurement.QuantityMeasurementTest" time="0.001"/>
-  <testcase name="given1Feet1Feet_whenCompared_shouldReturnTrue" classname="com.quantitymeasurement.QuantityMeasurementTest" time="0.0"/>
-  <testcase name="given1Inch1Yard_whenCompared_shouldReturnFalse" classname="com.quantitymeasurement.QuantityMeasurementTest" time="0.0"/>
-  <testcase name="given1Feet1Inch_whenCompared_shouldReturnTrue" classname="com.quantitymeasurement.QuantityMeasurementTest" time="0.0"/>
-  <testcase name="given1Feet1Cm_whenCompared_shouldReturnFalse" classname="com.quantitymeasurement.QuantityMeasurementTest" time="0.0"/>
-  <testcase name="given1Feet30_48Cm_whenCompared_shouldReturnTrue" classname="com.quantitymeasurement.QuantityMeasurementTest" time="0.0"/>
-  <testcase name="givenSameInchValues_whenValuesAreEqual_shouldReturnTrue" classname="com.quantitymeasurement.QuantityMeasurementTest" time="0.0"/>
-  <testcase name="given1Yard1Yard_whenReferencesAreNotEqual_shouldReturnFalse" classname="com.quantitymeasurement.QuantityMeasurementTest" time="0.0"/>
-  <testcase name="given1Yard0Yard_whenReferencesAreNotEqual_shouldReturnFalse" classname="com.quantitymeasurement.QuantityMeasurementTest" time="0.0"/>
-  <testcase name="given1Inch1Feet_whenCompared_shouldReturnTrue" classname="com.quantitymeasurement.QuantityMeasurementTest" time="0.0"/>
-  <testcase name="givenZeroInches_whenEqual_shouldReturnTrue" classname="com.quantitymeasurement.QuantityMeasurementTest" time="0.0"/>
-  <testcase name="given0Cm0Cm_whenEqual_shouldReturnTrue" classname="com.quantitymeasurement.QuantityMeasurementTest" time="0.0"/>
-  <testcase name="given1Inch1Cm_whenCompared_shouldReturnFalse" classname="com.quantitymeasurement.QuantityMeasurementTest" time="0.001"/>
-  <testcase name="given35Inches1Yard_whenCompared_shouldReturnTrue" classname="com.quantitymeasurement.QuantityMeasurementTest" time="0.001"/>
-  <testcase name="given36Inches1Yard_whenCompared_shouldReturnTrue" classname="com.quantitymeasurement.QuantityMeasurementTest" time="0.0"/>
-  <testcase name="givenNullValue_whenEqualedNull_shouldThrowException" classname="com.quantitymeasurement.QuantityMeasurementTest" time="0.002"/>
-  <testcase name="given1Cm0Cm_whenReferencesAreNotEqual_shouldReturnFalse" classname="com.quantitymeasurement.QuantityMeasurementTest" time="0.001"/>
-  <testcase name="given0Feet0Inch_whenCompared_shouldReturnTrue" classname="com.quantitymeasurement.QuantityMeasurementTest" time="0.002"/>
-  <testcase name="given1Cm2_54Inches_whenCompared_shouldReturnTrue" classname="com.quantitymeasurement.QuantityMeasurementTest" time="0.001"/>
-  <testcase name="givenDifferentFeetValues_whenReferencesAreNotEqual_shouldReturnFalse" classname="com.quantitymeasurement.QuantityMeasurementTest" time="0.0"/>
-  <testcase name="given1Inch1Feet_whenEqualed_shouldReturnTrue" classname="com.quantitymeasurement.QuantityMeasurementTest" time="0.002"/>
-  <testcase name="given1Yard36Inches_whenCompared_shouldReturnTrue" classname="com.quantitymeasurement.QuantityMeasurementTest" time="0.001"/>
-  <testcase name="given1Feet1Yard_whenCompared_shouldReturnFalse" classname="com.quantitymeasurement.QuantityMeasurementTest" time="0.0"/>
-  <testcase name="given0YardNull_whenNull_shouldThrowException" classname="com.quantitymeasurement.QuantityMeasurementTest" time="0.0"/>
-  <testcase name="givenSameInchValues_whenReferencesAreNotEqual_shouldReturnFalse" classname="com.quantitymeasurement.QuantityMeasurementTest" time="0.0"/>
-  <testcase name="givenNullValue_whenNull_shouldThrowException" classname="com.quantitymeasurement.QuantityMeasurementTest" time="0.001"/>
-  <testcase name="given1Cm1Cm_whenReferencesAreNotEqual_shouldReturnFalse" classname="com.quantitymeasurement.QuantityMeasurementTest" time="0.001"/>
-  <testcase name="given12Inch1Feet_whenCompared_shouldReturnTrue" classname="com.quantitymeasurement.QuantityMeasurementTest" time="0.001"/>
-  <testcase name="givenSameFeetValues_whenValuesAreEqual_shouldReturnTrue" classname="com.quantitymeasurement.QuantityMeasurementTest" time="0.0"/>
-  <testcase name="given0CmNull_whenNull_shouldThrowException" classname="com.quantitymeasurement.QuantityMeasurementTest" time="0.001"/>
-  <testcase name="given0Yard0Yard_whenEqual_shouldReturnTrue" classname="com.quantitymeasurement.QuantityMeasurementTest" time="0.0"/>
-  <testcase name="given3Feet1Yard_whenCompared_shouldReturnTrue" classname="com.quantitymeasurement.QuantityMeasurementTest" time="0.0"/>
+  <testcase name="given1Liter1000MilliLiters_whenEqualed_shouldReturnTrue" classname="com.quantitymeasurement.QuantityMeasurementTest" time="0.003"/>
   <system-out><![CDATA[]]></system-out>
   <system-err><![CDATA[]]></system-err>
 </testsuite>
