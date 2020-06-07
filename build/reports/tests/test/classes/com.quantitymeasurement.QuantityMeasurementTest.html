@@ -23,7 +23,7 @@
 <tr>
 <td>
 <div class="infoBox" id="tests">
-<div class="counter">49</div>
+<div class="counter">56</div>
 <p>tests</p>
 </div>
 </td>
@@ -41,7 +41,7 @@
 </td>
 <td>
 <div class="infoBox" id="duration">
-<div class="counter">0.034s</div>
+<div class="counter">0.032s</div>
 <p>duration</p>
 </div>
 </td>
@@ -62,9 +62,6 @@
 <ul class="tabLinks">
 <li>
 <a href="#tab0">Tests</a>
-</li>
-<li>
-<a href="#tab1">Standard output</a>
 </li>
 </ul>
 <div id="tab0" class="tab">
@@ -88,13 +85,18 @@
 <td class="success">passed</td>
 </tr>
 <tr>
-<td class="success">given0Feet0Feet_whenEqual_shouldReturnFalse</td>
+<td class="success">given0FahrenheitsNull_whenCompared_shouldReturnTrue</td>
 <td class="success">0.001s</td>
 <td class="success">passed</td>
 </tr>
 <tr>
+<td class="success">given0Feet0Feet_whenEqual_shouldReturnFalse</td>
+<td class="success">0s</td>
+<td class="success">passed</td>
+</tr>
+<tr>
 <td class="success">given0Feet0Feet_whenEqual_shouldReturnTrue</td>
-<td class="success">0.002s</td>
+<td class="success">0s</td>
 <td class="success">passed</td>
 </tr>
 <tr>
@@ -118,8 +120,13 @@
 <td class="success">passed</td>
 </tr>
 <tr>
+<td class="success">given1Celsius1Celsius_whenCompared_shouldReturnTrue</td>
+<td class="success">0.008s</td>
+<td class="success">passed</td>
+</tr>
+<tr>
 <td class="success">given1Cm0Cm_whenReferencesAreNotEqual_shouldReturnFalse</td>
-<td class="success">0s</td>
+<td class="success">0.001s</td>
 <td class="success">passed</td>
 </tr>
 <tr>
@@ -129,17 +136,32 @@
 </tr>
 <tr>
 <td class="success">given1Cm2_54Inches_whenCompared_shouldReturnTrue</td>
-<td class="success">0.001s</td>
-<td class="success">passed</td>
-</tr>
-<tr>
-<td class="success">given1Feet12Inch_whenCompared_shouldReturnTrue</td>
 <td class="success">0s</td>
 <td class="success">passed</td>
 </tr>
 <tr>
-<td class="success">given1Feet12Inches_whenEqual_shouldReturnFalse</td>
+<td class="success">given1Fahrenheit1Celsius_whenCompared_shouldReturnFalse</td>
+<td class="success">0s</td>
+<td class="success">passed</td>
+</tr>
+<tr>
+<td class="success">given1Fahrenheit2Celsius_whenAdded_shouldReturn7_57Liters</td>
+<td class="success">0s</td>
+<td class="success">passed</td>
+</tr>
+<tr>
+<td class="success">given1Fahrenheits1Fahrenheits_whenCompared_shouldReturnTrue</td>
+<td class="success">0s</td>
+<td class="success">passed</td>
+</tr>
+<tr>
+<td class="success">given1Feet12Inch_whenCompared_shouldReturnTrue</td>
 <td class="success">0.001s</td>
+<td class="success">passed</td>
+</tr>
+<tr>
+<td class="success">given1Feet12Inches_whenEqual_shouldReturnFalse</td>
+<td class="success">0s</td>
 <td class="success">passed</td>
 </tr>
 <tr>
@@ -169,7 +191,7 @@
 </tr>
 <tr>
 <td class="success">given1Feet2Inch_whenAdded_shouldReturn14Inch</td>
-<td class="success">0.015s</td>
+<td class="success">0.001s</td>
 <td class="success">passed</td>
 </tr>
 <tr>
@@ -179,12 +201,12 @@
 </tr>
 <tr>
 <td class="success">given1Gallon3_78Liters_whenAdded_shouldReturn7_57Liters</td>
-<td class="success">0s</td>
+<td class="success">0.001s</td>
 <td class="success">passed</td>
 </tr>
 <tr>
 <td class="success">given1Gallon3_78Liters_whenEqualed_shouldReturnTrue</td>
-<td class="success">0.001s</td>
+<td class="success">0s</td>
 <td class="success">passed</td>
 </tr>
 <tr>
@@ -199,7 +221,7 @@
 </tr>
 <tr>
 <td class="success">given1Inch1Feet_whenEqualed_shouldReturnTrue</td>
-<td class="success">0s</td>
+<td class="success">0.014s</td>
 <td class="success">passed</td>
 </tr>
 <tr>
@@ -214,7 +236,7 @@
 </tr>
 <tr>
 <td class="success">given1Kg1000Grams_whenEqualed_shouldReturnTrue</td>
-<td class="success">0.003s</td>
+<td class="success">0s</td>
 <td class="success">passed</td>
 </tr>
 <tr>
@@ -234,7 +256,7 @@
 </tr>
 <tr>
 <td class="success">given1Tonne1000Kgs_whenEqualed_shouldReturnTrue</td>
-<td class="success">0s</td>
+<td class="success">0.001s</td>
 <td class="success">passed</td>
 </tr>
 <tr>
@@ -244,7 +266,7 @@
 </tr>
 <tr>
 <td class="success">given1Yard1Yard_whenReferencesAreNotEqual_shouldReturnFalse</td>
-<td class="success">0.001s</td>
+<td class="success">0.002s</td>
 <td class="success">passed</td>
 </tr>
 <tr>
@@ -254,12 +276,17 @@
 </tr>
 <tr>
 <td class="success">given1Yard3Feet_whenCompared_shouldReturnTrue</td>
-<td class="success">0.001s</td>
+<td class="success">0s</td>
+<td class="success">passed</td>
+</tr>
+<tr>
+<td class="success">given212Fahrenheit100Celsius_whenCompared_shouldReturnTrue</td>
+<td class="success">0s</td>
 <td class="success">passed</td>
 </tr>
 <tr>
 <td class="success">given2Inch2Inch_whenAdded_shouldReturn4Inch</td>
-<td class="success">0s</td>
+<td class="success">0.001s</td>
 <td class="success">passed</td>
 </tr>
 <tr>
@@ -268,13 +295,18 @@
 <td class="success">passed</td>
 </tr>
 <tr>
+<td class="success">given33_8Fahrenheits1Celsius_whenCompared_shouldReturnTrue</td>
+<td class="success">0s</td>
+<td class="success">passed</td>
+</tr>
+<tr>
 <td class="success">given35Inches1Yard_whenCompared_shouldReturnTrue</td>
-<td class="success">0.001s</td>
+<td class="success">0s</td>
 <td class="success">passed</td>
 </tr>
 <tr>
 <td class="success">given36Inches1Yard_whenCompared_shouldReturnTrue</td>
-<td class="success">0.001s</td>
+<td class="success">0s</td>
 <td class="success">passed</td>
 </tr>
 <tr>
@@ -289,17 +321,17 @@
 </tr>
 <tr>
 <td class="success">givenNullValue_whenEqualedNull_shouldThrowException</td>
-<td class="success">0.001s</td>
+<td class="success">0s</td>
 <td class="success">passed</td>
 </tr>
 <tr>
 <td class="success">givenNullValue_whenNull_shouldThrowException</td>
-<td class="success">0.001s</td>
+<td class="success">0s</td>
 <td class="success">passed</td>
 </tr>
 <tr>
 <td class="success">givenSameFeetValues_whenReferencesAreNotEqual_shouldReturnFalse</td>
-<td class="success">0.001s</td>
+<td class="success">0s</td>
 <td class="success">passed</td>
 </tr>
 <tr>
@@ -314,36 +346,15 @@
 </tr>
 <tr>
 <td class="success">givenSameInchValues_whenValuesAreEqual_shouldReturnTrue</td>
-<td class="success">0.001s</td>
+<td class="success">0s</td>
 <td class="success">passed</td>
 </tr>
 <tr>
 <td class="success">givenZeroInches_whenEqual_shouldReturnTrue</td>
-<td class="success">0.001s</td>
+<td class="success">0s</td>
 <td class="success">passed</td>
 </tr>
 </table>
-</div>
-<div id="tab1" class="tab">
-<h2>Standard output</h2>
-<span class="code">
-<pre>1.0,1.0
-0.0,0.0
-12.0,12.0
-1.0,1.0
-0.0,0.0
-0.0,0.0
-1.0,1.0
-1000.0,1000.0
-1.0,1.0
-3.78,3.78
-0.0,0.0
-12.0,12.0
-3.78,36.0
-39.599999999999994,39.599999999999994
-0.0,0.0
-</pre>
-</span>
 </div>
 </div>
 <div id="footer">
@@ -353,7 +364,7 @@
 <input id="line-wrapping-toggle" type="checkbox" autocomplete="off"/>
 </label>
 </div>Generated by 
-<a href="http://www.gradle.org">Gradle 6.1</a> at Jun 6, 2020 1:02:26 PM</p>
+<a href="http://www.gradle.org">Gradle 6.1</a> at Jun 7, 2020 10:30:13 PM</p>
 </div>
 </div>
 </body>

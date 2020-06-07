@@ -3,7 +3,7 @@ package com.quantitymeasurement;
 public class QuantityMeasurementException extends RuntimeException {
 
     enum ExceptionType{
-        NULL
+        NULL,INVALID_TYPE
     }
     ExceptionType type;
 

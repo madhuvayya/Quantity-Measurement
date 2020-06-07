@@ -236,16 +236,16 @@ public class QuantityMeasurementTest {
 
     @Test
     public void given0Cm0Cm_whenEqual_shouldReturnTrue() {
-        UnitComparision length1 = new UnitComparision(UnitConversion.CM,0.0);
-        UnitComparision length2 = new UnitComparision(UnitConversion.CM,0.0);
+        UnitComparision length1 = new UnitComparision(UnitConversion.CENTIMETRE,0.0);
+        UnitComparision length2 = new UnitComparision(UnitConversion.CENTIMETRE,0.0);
         Assert.assertTrue(length1.equals(length2));
     }
 
     @Test
     public void given0CmNull_whenNull_shouldThrowException() {
         try {
-            UnitComparision length1 = new UnitComparision(UnitConversion.CM,0.0);
-            UnitComparision length2 = new UnitComparision(UnitConversion.CM,null);
+            UnitComparision length1 = new UnitComparision(UnitConversion.CENTIMETRE,0.0);
+            UnitComparision length2 = new UnitComparision(UnitConversion.CENTIMETRE,null);
             Assert.assertFalse(length1.equals(length2));
         } catch (QuantityMeasurementException e){
             Assert.assertEquals(QuantityMeasurementException.ExceptionType.NULL,e.type);
@@ -254,22 +254,22 @@ public class QuantityMeasurementTest {
 
     @Test
     public void given1Cm1Cm_whenReferencesAreNotEqual_shouldReturnFalse() {
-        UnitComparision length1 = new UnitComparision(UnitConversion.CM,1.0);
-        UnitComparision length2 = new UnitComparision(UnitConversion.CM,1.0);
+        UnitComparision length1 = new UnitComparision(UnitConversion.CENTIMETRE,1.0);
+        UnitComparision length2 = new UnitComparision(UnitConversion.CENTIMETRE,1.0);
         Assert.assertFalse(length1==length2);
     }
 
     @Test
     public void given1Cm0Cm_whenReferencesAreNotEqual_shouldReturnFalse() {
-        UnitComparision length1 = new UnitComparision(UnitConversion.CM,1.0);
-        UnitComparision length2 = new UnitComparision(UnitConversion.CM,0.0);
+        UnitComparision length1 = new UnitComparision(UnitConversion.CENTIMETRE,1.0);
+        UnitComparision length2 = new UnitComparision(UnitConversion.CENTIMETRE,0.0);
         Assert.assertFalse(length1==length2);
     }
 
     @Test
     public void given1Feet1Cm_whenCompared_shouldReturnFalse() {
         UnitComparision length1 = new UnitComparision(UnitConversion.FEET,1.0);
-        UnitComparision length2 = new UnitComparision(UnitConversion.CM,1.0);
+        UnitComparision length2 = new UnitComparision(UnitConversion.CENTIMETRE,1.0);
         boolean result = length1.compare(length2);
         Assert.assertFalse(result);
     }
@@ -277,14 +277,14 @@ public class QuantityMeasurementTest {
     @Test
     public void given1Inch1Cm_whenCompared_shouldReturnFalse() {
         UnitComparision length1 = new UnitComparision(UnitConversion.INCH,1.0);
-        UnitComparision length2 = new UnitComparision(UnitConversion.CM,1.0);
+        UnitComparision length2 = new UnitComparision(UnitConversion.CENTIMETRE,1.0);
         boolean result = length1.compare(length2);
         Assert.assertFalse(result);
     }
 
     @Test
     public void given1Cm2_54Inches_whenCompared_shouldReturnTrue() {
-        UnitComparision length1 = new UnitComparision(UnitConversion.CM,1.0);
+        UnitComparision length1 = new UnitComparision(UnitConversion.CENTIMETRE,1.0);
         UnitComparision length2 = new UnitComparision(UnitConversion.INCH,0.393701);
         boolean result = length1.compare(length2);
         Assert.assertTrue(result);
@@ -317,7 +317,7 @@ public class QuantityMeasurementTest {
     @Test
     public void given2Inch2_Cm_whenAdded_shouldReturn14Inch() {
         UnitComparision unitComparision = new UnitComparision(UnitConversion.INCH,2.0);
-        UnitComparision unitComparision1 = new UnitComparision(UnitConversion.CM,2.5);
+        UnitComparision unitComparision1 = new UnitComparision(UnitConversion.CENTIMETRE,2.5);
         Double sum = unitComparision.addUnites(unitComparision1);
         Assert.assertEquals(2.9842525,sum,0.0);
     }
@@ -356,14 +356,14 @@ public class QuantityMeasurementTest {
     public void given1Kg1000Grams_whenEqualed_shouldReturnTrue() {
         UnitComparision unitComparision = new UnitComparision(UnitConversion.KG,1.0);
         UnitComparision unitComparision1 = new UnitComparision(UnitConversion.GRAMS,1000.0);
-        Assert.assertTrue(unitComparision.equals(unitComparision1));
+        Assert.assertTrue(unitComparision.compare(unitComparision1));
     }
 
     @Test
     public void given1Tonne1000Kgs_whenEqualed_shouldReturnTrue() {
         UnitComparision unitComparision = new UnitComparision(UnitConversion.TONNE,1.0);
         UnitComparision unitComparision1 = new UnitComparision(UnitConversion.KG,1000.0);
-        Assert.assertTrue(unitComparision.equals(unitComparision1));
+        Assert.assertTrue(unitComparision.compare(unitComparision1));
     }
 
     @Test
@@ -376,15 +376,76 @@ public class QuantityMeasurementTest {
 
     @Test
     public void given1Inch1Kg_whenEqualed_shouldReturnFalse() {
-        UnitComparision unitComparision = new UnitComparision(UnitConversion.INCH,1.0);
-        UnitComparision unitComparision1 = new UnitComparision(UnitConversion.KG,1.0);
-        Assert.assertFalse(unitComparision.equals(unitComparision1));
+        try {
+            UnitComparision unitComparision = new UnitComparision(UnitConversion.INCH, 1.0);
+            UnitComparision unitComparision1 = new UnitComparision(UnitConversion.KG, 1.0);
+            unitComparision.compare(unitComparision1);
+        } catch (QuantityMeasurementException e) {
+            Assert.assertEquals(QuantityMeasurementException.ExceptionType.INVALID_TYPE,e.type);
+        }
     }
 
     @Test
     public void given1Gallon1Yard_whenEqualed_shouldReturnFalse() {
-        UnitComparision unitComparision = new UnitComparision(UnitConversion.GALLON,1.0);
-        UnitComparision unitComparision1 = new UnitComparision(UnitConversion.YARD,1.0);
-        Assert.assertFalse(unitComparision.equals(unitComparision1));
+        try {
+            UnitComparision unitComparision = new UnitComparision(UnitConversion.GALLON, 1.0);
+            UnitComparision unitComparision1 = new UnitComparision(UnitConversion.YARD, 1.0);
+            boolean compare = unitComparision.compare(unitComparision1);
+        } catch (QuantityMeasurementException e) {
+            Assert.assertEquals(QuantityMeasurementException.ExceptionType.INVALID_TYPE,e.type);
+        }
+    }
+
+    @Test
+    public void given1Fahrenheits1Fahrenheits_whenCompared_shouldReturnTrue() {
+        UnitComparision unitComparision = new UnitComparision(UnitConversion.FAHRENHEIT,1.0);
+        UnitComparision unitComparision1 = new UnitComparision(UnitConversion.FAHRENHEIT,1.0);
+        Assert.assertTrue(unitComparision.equals(unitComparision1));
+    }
+
+    @Test
+    public void given0FahrenheitsNull_whenCompared_shouldReturnTrue() {
+        UnitComparision unitComparision = new UnitComparision(UnitConversion.FAHRENHEIT,1.0);
+        try {
+            UnitComparision unitComparision1 = new UnitComparision(UnitConversion.FAHRENHEIT,null);
+        } catch (QuantityMeasurementException e) {
+            Assert.assertEquals(QuantityMeasurementException.ExceptionType.NULL,e.type);
+        }
+    }
+
+    @Test
+    public void given1Celsius1Celsius_whenCompared_shouldReturnTrue() {
+        UnitComparision unitComparision = new UnitComparision(UnitConversion.CELSIUS,1.0);
+        UnitComparision unitComparision1 = new UnitComparision(UnitConversion.CELSIUS,1.0);
+        Assert.assertTrue(unitComparision.compare(unitComparision1));
+    }
+
+    @Test
+    public void given33_8Fahrenheits1Celsius_whenCompared_shouldReturnTrue() {
+        UnitComparision unitComparision = new UnitComparision(UnitConversion.FAHRENHEIT,33.8);
+        UnitComparision unitComparision1 = new UnitComparision(UnitConversion.CELSIUS,1.0);
+        Assert.assertTrue(unitComparision.compare(unitComparision1));
+    }
+
+    @Test
+    public void given212Fahrenheit100Celsius_whenCompared_shouldReturnTrue() {
+        UnitComparision unitComparision = new UnitComparision(UnitConversion.FAHRENHEIT,212.0);
+        UnitComparision unitComparision1 = new UnitComparision(UnitConversion.CELSIUS,100.0);
+        Assert.assertTrue(unitComparision.compare(unitComparision1));
+    }
+
+    @Test
+    public void given1Fahrenheit1Celsius_whenCompared_shouldReturnFalse() {
+        UnitComparision unitComparision = new UnitComparision(UnitConversion.FAHRENHEIT,1.0);
+        UnitComparision unitComparision1 = new UnitComparision(UnitConversion.CELSIUS,1.0);
+        Assert.assertFalse(unitComparision.compare(unitComparision1));
+    }
+
+    @Test
+    public void given1Fahrenheit2Celsius_whenAdded_shouldReturn7_57Liters() {
+        UnitComparision unitComparision = new UnitComparision(UnitConversion.FAHRENHEIT,1.0);
+        UnitComparision unitComparision1 = new UnitComparision(UnitConversion.CELSIUS,2.0);
+        Double sum = unitComparision.addUnites(unitComparision1);
+        Assert.assertEquals(36.6,sum,0.0);
     }
 }
