@@ -13,7 +13,8 @@ public enum UnitConversion {
     GRAMS(0.001,UnitType.WEIGHT),
     TONNE(1000.0,UnitType.WEIGHT),
     FAHRENHEIT(1.0,UnitType.TEMPERATURE),
-    CELSIUS(-33.0,UnitType.TEMPERATURE);
+    CELSIUS(-33.0,UnitType.TEMPERATURE),
+    KELVIN(-457.87,UnitType.TEMPERATURE);
 
     public final Double value;
     public final UnitType type;
@@ -30,6 +31,8 @@ public enum UnitConversion {
     public Double getConversionValue(UnitConversion unit,Double value){
         if(unit.equals(UnitConversion.CELSIUS))
             return (value * 9/5) + 32.0;
+        if(unit.equals(UnitConversion.KELVIN))
+            return (value - 273.15) * 9/5 + 32.0;
         return value;
     }
 

@@ -256,14 +256,14 @@ public class QuantityMeasurementTest {
     public void given1Cm1Cm_whenReferencesAreNotEqual_shouldReturnFalse() {
         UnitComparision length1 = new UnitComparision(UnitConversion.CENTIMETRE,1.0);
         UnitComparision length2 = new UnitComparision(UnitConversion.CENTIMETRE,1.0);
-        Assert.assertFalse(length1==length2);
+        Assert.assertNotSame(length1, length2);
     }
 
     @Test
     public void given1Cm0Cm_whenReferencesAreNotEqual_shouldReturnFalse() {
         UnitComparision length1 = new UnitComparision(UnitConversion.CENTIMETRE,1.0);
         UnitComparision length2 = new UnitComparision(UnitConversion.CENTIMETRE,0.0);
-        Assert.assertFalse(length1==length2);
+        Assert.assertNotSame(length1, length2);
     }
 
     @Test
@@ -442,10 +442,34 @@ public class QuantityMeasurementTest {
     }
 
     @Test
-    public void given1Fahrenheit2Celsius_whenAdded_shouldReturn7_57Liters() {
+    public void given1Fahrenheit2Celsius_whenAdded_shouldReturn36_6Fahrenheit() {
         UnitComparision unitComparision = new UnitComparision(UnitConversion.FAHRENHEIT,1.0);
         UnitComparision unitComparision1 = new UnitComparision(UnitConversion.CELSIUS,2.0);
         Double sum = unitComparision.addUnites(unitComparision1);
         Assert.assertEquals(36.6,sum,0.0);
+    }
+
+    @Test
+    public void given1FahrenheitMinus457_87Kelvin_whenAdded_shouldReturnTrue() {
+        UnitComparision unitComparision = new UnitComparision(UnitConversion.FAHRENHEIT,-457.87);
+        UnitComparision unitComparision1 = new UnitComparision(UnitConversion.KELVIN,1.0);
+        Boolean compare = unitComparision.compare(unitComparision1);
+        Assert.assertTrue(compare);
+    }
+
+    @Test
+    public void given1Fahrenheit2Kelvin_whenAdded_shouldReturn36_6Fahrenheit() {
+        UnitComparision unitComparision = new UnitComparision(UnitConversion.FAHRENHEIT,1.0);
+        UnitComparision unitComparision1 = new UnitComparision(UnitConversion.KELVIN,2.0);
+        Double sum = unitComparision.addUnites(unitComparision1);
+        Assert.assertEquals(-455.07,sum,0.0);
+    }
+
+    @Test
+    public void given1Celsius1Kelvin_whenAdded_shouldReturn36_6Fahrenheit() {
+        UnitComparision unitComparision = new UnitComparision(UnitConversion.CELSIUS,1.0);
+        UnitComparision unitComparision1 = new UnitComparision(UnitConversion.KELVIN,1.0);
+        Double sum = unitComparision.addUnites(unitComparision1);
+        Assert.assertEquals(-424.07,sum,0.0);
     }
 }
